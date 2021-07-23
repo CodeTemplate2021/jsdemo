@@ -29,7 +29,11 @@ HT_UserAgent_list = [
 ]
 ## 填入推送方式及对应值
 notice_list = [
-    ['PUSHPLUS','99f3673ac10144cdaf791b1fa5dc3704']
+     ['TGBOT','TG_BOT_TOKEN@TG_USER_ID'],  # 账号1  tgbot通知
+     ['PUSHPLUS','99f3673ac10144cdaf791b1fa5dc3704'],  # 账号2  pushplus通知
+    ['',''],  # 账号3  无通知请留空
+    ['DDBOT','DD_BOT_TOKEN@DD_BOT_SECRET'],  # 账号4  钉钉通知
+    ['QYWX','QYWX_KEY']  # 账号5  企业微信机器人key通知
 ]
 # 请配置该值 ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
 
