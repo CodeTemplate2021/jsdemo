@@ -1,7 +1,7 @@
 
 const $ = new Env('tom九章1.10版');
 
-let jztoken = '' //ck放这里 别想多账号  没有提现功能   只有看文章  定时自己设置
+let jztoken = '12BoaMf9KSkZ-IbWJ3jZFvFdTxDjf9so' //ck放这里 别想多账号  没有提现功能   只有看文章  定时自己设置
 
 
 
