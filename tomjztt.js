@@ -20,11 +20,11 @@ export jzarticlenum=3
 */
 
 // [task_local]
-// 30 8 * * * tomjztt.js, tag=tom九章1.12版-热心市民修🚗版,  enabled=true
+// 30 8 * * * tomjztt.js, tag=tom九章1.15版-热心市民修🚗版,  enabled=true
 
 const { exit } = require("process");
 
-const $ = new Env('tom九章1.12版-热心市民修🚗版');
+const $ = new Env('tom九章1.15版-热心市民修🚗版');
 
 
 
@@ -99,7 +99,8 @@ async function all() {
 
         var daily_task;
         for (var j = 0; j < taskList.data.daily_task.length; j++) {
-            daily_task = taskList.data, daily_task[j];
+            daily_task = taskList.data.daily_task[j];
+
             if (daily_task.name == "签到奖励" && daily_task.is_finish != 1) {
                 //签到奖励任务没有完成，就执行这块签到
                 await ckck()
@@ -115,13 +116,12 @@ async function all() {
                 await task(`post`, 'https://api.st615.com/v2/task/ads', headerss, `id=94&token=${jztoken}`), data = DATA, console.log(data.data);
                 await $.wait(3000)
             }
-            else if (daily_task.id == 16 && daily_task.is_finish != 1) {
+            else if (daily_task.id == 16 && daily_task.is_finish != 1 && articleNum > 0) {
                 //文章阅读60分钟
                 console.log(`今日文章阅读60分钟没有完成，这边你设置了读取${articleNum}篇`);
-
                 await readArticle(articleNum, articleType());
             }
-            else if (daily_task.id == 13 && daily_task.is_finish != 1) {
+            else if (daily_task.id == 13 && daily_task.is_finish != 1 && articleNum > 0) {
                 //文章阅读的没有执行完成，就执行这块 一次性20篇，完成当天所需文章阅读数量
                 console.log(`今日读取文章20篇任务没有完成，现在帮你读他个20篇应付一下`);
                 await readArticle(20, articleType());
@@ -129,9 +129,12 @@ async function all() {
             
         }
 
-
         //看视频
-        await watchVideo(videoNum, videoType());
+        if(videoNum > 0){
+            console.log(`你设置了你要看视频,看${videoNum}个`)
+            await watchVideo(videoNum, videoType());
+
+        }
 
         //看任务里面的广告
         for (let i = 0; i < taskList.data.ads_task.length; i++) {
