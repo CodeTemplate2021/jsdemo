@@ -125,7 +125,7 @@ if __name__ == '__main__':
             wspin = re.findall(r"pin=(.*?);", i["value"])[0]
             item = getckitem("pt_pin=" + wspin)
             if item != []:
-                qlid = item["_id"]
+                qlid = item["id"]
                 if update(ptck, qlid):
                     print("第%s个wskey更新成功, pin:%s" % (count, wspin))
                 else:
