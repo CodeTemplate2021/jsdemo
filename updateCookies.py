@@ -129,7 +129,7 @@ if __name__ == '__main__':
                 if update(ptck, qlid):
                     print("第%s个wskey更新成功, pin:%s" % (count, wspin))
                 else:
-                    print("第%s个wskey更新失败, pin:%s" % (count, wspin))
+                    print("第%s个wskey更新失败, pin:%s" % qlid)
             else:
                 if insert(ptck):
                     print("第%s个wskey添加成功" % count)
