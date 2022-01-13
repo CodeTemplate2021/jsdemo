@@ -124,7 +124,6 @@ if __name__ == '__main__':
             ptck = wstopt(i["value"])
             wspin = re.findall(r"pin=(.*?);", i["value"])[0]
             item = getckitem("pt_pin=" + wspin)
-             print(item)
             if item != []:
                 qlid = item["id"]
                 if update(ptck, qlid):
